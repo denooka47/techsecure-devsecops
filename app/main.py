@@ -12,7 +12,7 @@ import os
 import requests  # lib de exemplo: alvo do scan de dependencias (Trivy/pip-audit)
 from flask import Flask, jsonify, render_template, request
 
-APP_VERSION = os.environ.get("APP_VERSION", "1.0.1")
+APP_VERSION = os.environ.get("APP_VERSION", "1.0.0")
 
 
 def somar(a: float, b: float) -> float:

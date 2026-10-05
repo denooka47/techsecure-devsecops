@@ -2,8 +2,9 @@
 Flask==3.0.3
 gunicorn==22.0.0
 
-# Dependencias atualizadas (correcao das CVEs detectadas na esteira):
-#   urllib3 CVE-2023-43804 / certifi CVE-2023-37920 / requests PYSEC-2023-74
-requests==2.32.4
-urllib3==2.2.2
-certifi==2024.8.30
+# ATENCAO (DevSecOps): versoes propositalmente desatualizadas para a POC.
+# Trivy / pip-audit identificam CVEs conhecidos nestes pacotes.
+# A correcao (demonstrada na esteira) e atualizar para versoes seguras.
+requests==2.28.1
+urllib3==1.26.12
+certifi==2022.9.24
