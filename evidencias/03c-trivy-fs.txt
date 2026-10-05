@@ -1,0 +1,39 @@
+
+requirements.txt (pip)
+======================
+Total: 8 (HIGH: 8, CRITICAL: 0)
+
+┌─────────┬────────────────┬──────────┬────────┬───────────────────┬────────────────┬─────────────────────────────────────────────────────────────┐
+│ Library │ Vulnerability  │ Severity │ Status │ Installed Version │ Fixed Version  │                            Title                            │
+├─────────┼────────────────┼──────────┼────────┼───────────────────┼────────────────┼─────────────────────────────────────────────────────────────┤
+│ certifi │ CVE-2023-37920 │ HIGH     │ fixed  │ 2022.9.24         │ 2023.7.22      │ python-certifi: Removal of e-Tugra root certificate         │
+│         │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2023-37920                  │
+├─────────┼────────────────┤          │        ├───────────────────┼────────────────┼─────────────────────────────────────────────────────────────┤
+│ urllib3 │ CVE-2023-43804 │          │        │ 1.26.12           │ 2.0.6, 1.26.17 │ python-urllib3: Cookie request header isn't stripped during │
+│         │                │          │        │                   │                │ cross-origin redirects                                      │
+│         │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2023-43804                  │
+│         ├────────────────┤          │        │                   ├────────────────┼─────────────────────────────────────────────────────────────┤
+│         │ CVE-2025-66418 │          │        │                   │ 2.6.0          │ urllib3: urllib3: Unbounded decompression chain leads to    │
+│         │                │          │        │                   │                │ resource exhaustion                                         │
+│         │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2025-66418                  │
+│         ├────────────────┤          │        │                   │                ├─────────────────────────────────────────────────────────────┤
+│         │ CVE-2025-66471 │          │        │                   │                │ urllib3: urllib3 Streaming API improperly handles highly    │
+│         │                │          │        │                   │                │ compressed data                                             │
+│         │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2025-66471                  │
+│         ├────────────────┤          │        │                   ├────────────────┼─────────────────────────────────────────────────────────────┤
+│         │ CVE-2026-21441 │          │        │                   │ 2.6.3          │ urllib3: urllib3 vulnerable to decompression-bomb safeguard │
+│         │                │          │        │                   │                │ bypass when following HTTP redirects (streaming...          │
+│         │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-21441                  │
+│         ├────────────────┤          │        │                   ├────────────────┼─────────────────────────────────────────────────────────────┤
+│         │ CVE-2026-44431 │          │        │                   │ 2.7.0          │ urllib3: urllib3: Information disclosure via cross-origin   │
+│         │                │          │        │                   │                │ redirects forwarding sensitive headers                      │
+│         │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-44431                  │
+│         ├────────────────┤          │        │                   ├────────────────┼─────────────────────────────────────────────────────────────┤
+│         │ CVE-2026-97687 │          │        │                   │ 2.8.0          │ urllib3: urllib3: Traffic interception via HTTPS proxy TLS  │
+│         │                │          │        │                   │                │ configuration override                                      │
+│         │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-97687                  │
+│         ├────────────────┤          │        │                   │                ├─────────────────────────────────────────────────────────────┤
+│         │ CVE-2026-97689 │          │        │                   │                │ urllib3: urllib3: Denial of Service via unbounded memory    │
+│         │                │          │        │                   │                │ allocation in chunk parser...                               │
+│         │                │          │        │                   │                │ https://avd.aquasec.com/nvd/cve-2026-97689                  │
+└─────────┴────────────────┴──────────┴────────┴───────────────────┴────────────────┴─────────────────────────────────────────────────────────────┘
