@@ -243,23 +243,36 @@ Evidências (logs) estão no diretório `evidencias/` do repositório:
 - `05-docker-ps.txt` — container em execução (status *healthy*);
 - `06-app-*.txt` — respostas da aplicação funcionando.
 
-> **Prints:** inserir aqui as capturas de tela do WSL de cada etapa
-> (pipeline iniciando, build, testes, security scan, imagem Docker, container
-> em execução e aplicação funcionando no navegador).
+## 9.1 Prints da execução (WSL)
 
-**Comprovação da aplicação em execução (saída real):**
+As figuras a seguir são as capturas da execução real da esteira no ambiente
+WSL2 + Docker, cobrindo cada etapa exigida (build, teste, security scan, imagem
+Docker, container e aplicação funcionando), além da pipeline no GitHub Actions.
 
-```
-$ docker ps --filter name=techsecure-app
-NAMES            STATUS                        PORTS
-techsecure-app   Up About a minute (healthy)   0.0.0.0:8080->8080/tcp
+![Figura 1 — Testes automatizados (pytest): 6 testes aprovados.](evidencias/img/fig-01-testes.png){width=6in}
 
-$ curl http://localhost:8080/health
-{"status":"ok","version":"1.0.0"}
+![Figura 2 — Security scan com Bandit (SAST): achado B104 no código.](evidencias/img/fig-02-bandit.png){width=6in}
 
-$ curl http://localhost:8080/api/version
-{"app":"TechSecure Solutions","requests_lib":"2.28.1","version":"1.0.0"}
-```
+![Figura 3 — Security scan com pip-audit: CVEs nas dependências.](evidencias/img/fig-03-pip-audit.png){width=6in}
+
+![Figura 4 — Security scan com Trivy (filesystem): 8 vulnerabilidades HIGH.](evidencias/img/fig-04-trivy-fs.png){width=6in}
+
+![Figura 5 — Build da imagem Docker da aplicação.](evidencias/img/fig-05-docker-build.png){width=6in}
+
+![Figura 6 — Scan da imagem Docker com Trivy (pacotes Python + SO).](evidencias/img/fig-06-trivy-image.png){width=6in}
+
+![Figura 7 — Container em execução (status *healthy*) na porta 8080.](evidencias/img/fig-07-container.png){width=6in}
+
+![Figura 8 — Aplicação respondendo aos endpoints (curl).](evidencias/img/fig-08-app-endpoints.png){width=6in}
+
+![Figura 9 — Aplicação funcionando no navegador (http://localhost:8080).](evidencias/img/fig-09-app-navegador.png){width=6in}
+
+![Figura 10 — Pipeline no GitHub Actions disparada automaticamente a cada push.](evidencias/img/fig-10-actions.png){width=6in}
+
+> Observação: as capturas de terminal foram geradas a partir das saídas reais
+> salvas em `evidencias/` (arquivos `.txt`); as Figuras 9 e 10 são capturas
+> diretas do navegador. Todas podem ser substituídas por *screenshots* próprios
+> tirados durante a demonstração, se preferir.
 
 # 10. Demonstração (ciclo DevSecOps)
 
