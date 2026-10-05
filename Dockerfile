@@ -8,7 +8,7 @@ FROM python:3.12-slim
 # - instalar apenas o necessario
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    APP_VERSION=1.0.1 \
+    APP_VERSION=1.0.0 \
     PORT=8080
 
 WORKDIR /app
