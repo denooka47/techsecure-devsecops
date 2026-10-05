@@ -1,0 +1,6 @@
+# Dependencias de TESTE (nao vao para a imagem final).
+# Observacao: as ferramentas de seguranca (bandit, pip-audit) sao instaladas
+# isoladamente na pipeline, pois pip-audit conflita com as versoes antigas
+# de requests/urllib3 fixadas propositalmente em requirements.txt.
+-r requirements.txt
+pytest==8.2.2

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TechSecure Solutions - POC DevSecOps</title>
+  <style>
+    :root { --bg:#0b1220; --card:#121b2e; --accent:#38bdf8; --ok:#34d399; --txt:#e5edf7; --muted:#8aa0bd; }
+    * { box-sizing:border-box; } 
+    body { margin:0; font-family:system-ui,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--txt); }
+    .wrap { max-width:860px; margin:0 auto; padding:48px 20px; }
+    .badge { display:inline-block; background:rgba(56,189,248,.15); color:var(--accent); border:1px solid rgba(56,189,248,.4); padding:4px 12px; border-radius:999px; font-size:13px; font-weight:600; letter-spacing:.3px; }
+    h1 { font-size:34px; margin:16px 0 8px; }
+    p.lead { color:var(--muted); font-size:17px; line-height:1.6; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:28px; }
+    .card { background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:18px; }
+    .card h3 { margin:0 0 6px; font-size:15px; color:var(--accent); }
+    .card code { color:var(--ok); font-size:14px; }
+    .pipe { margin-top:28px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .step { background:#1b2740; border:1px solid rgba(56,189,248,.25); padding:8px 12px; border-radius:10px; font-size:13px; }
+    .arrow { color:var(--muted); }
+    footer { margin-top:36px; color:var(--muted); font-size:13px; border-top:1px solid rgba(255,255,255,.07); padding-top:16px; }
+    .ver { color:var(--ok); font-weight:700; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="badge">AP II &middot; DevSecOps</span>
+    <h1>TechSecure Solutions</h1>
+    <p class="lead">Prova de conceito de uma esteira <strong>CI/CD</strong> com seguranca integrada.
+      Esta aplicacao e o alvo implantado automaticamente ao final da pipeline.</p>
+
+    <div class="pipe">
+      <span class="step">Code</span><span class="arrow">&rarr;</span>
+      <span class="step">Build</span><span class="arrow">&rarr;</span>
+      <span class="step">Test</span><span class="arrow">&rarr;</span>
+      <span class="step">Security Scan</span><span class="arrow">&rarr;</span>
+      <span class="step">Docker Image</span><span class="arrow">&rarr;</span>
+      <span class="step">Deploy</span><span class="arrow">&rarr;</span>
+      <span class="step">Container</span>
+    </div>
+
+    <div class="grid">
+      <div class="card"><h3>Versao da aplicacao</h3><code class="ver">v{{ version }}</code></div>
+      <div class="card"><h3>Healthcheck</h3><code>GET /health</code></div>
+      <div class="card"><h3>API versao</h3><code>GET /api/version</code></div>
+      <div class="card"><h3>API soma</h3><code>GET /api/soma?a=2&amp;b=3</code></div>
+    </div>
+
+    <footer>
+      Container em execucao via Docker &middot; Deploy automatico pela pipeline CI/CD &middot;
+      Seguranca: Bandit (SAST) + Trivy (imagem/dependencias)
+    </footer>
+  </div>
+</body>
+</html>
