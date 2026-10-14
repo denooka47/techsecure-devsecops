@@ -1,8 +1,7 @@
 .git
 .github
 tests
-docs
-evidencias
+reports
 scripts
 __pycache__
 *.pyc

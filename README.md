@@ -1,7 +1,7 @@
 # TechSecure Solutions - POC de Esteira CI/CD com DevSecOps
 
-Prova de conceito (AP II - DevSecOps) de uma esteira CI/CD automatizada com
-segurança integrada, para a empresa fictícia **TechSecure Solutions**.
+Prova de conceito de uma esteira CI/CD automatizada com segurança integrada,
+para a empresa fictícia **TechSecure Solutions**.
 
 ## Fluxo da esteira
 
@@ -45,12 +45,10 @@ techsecure-devsecops/
 ├── Dockerfile                # imagem do container
 ├── .dockerignore
 ├── .github/workflows/cicd.yml# pipeline CI/CD (GitHub Actions)
-├── scripts/
-│   ├── run-local-pipeline.sh # roda a esteira inteira no WSL (evidências)
-│   ├── deploy.sh             # deploy/atualização do container
-│   └── setup-self-hosted-runner.sh # runner self-hosted p/ deploy no WSL
-├── evidencias/               # saídas (logs) de cada etapa
-└── docs/                     # material do trabalho escrito
+└── scripts/
+    ├── run-local-pipeline.sh # roda a esteira inteira no WSL (relatórios em reports/)
+    ├── deploy.sh             # deploy/atualização do container
+    └── setup-self-hosted-runner.sh # runner self-hosted p/ deploy no WSL
 ```
 
 ## Como executar localmente (WSL + Docker)
@@ -73,12 +71,18 @@ Dispara **automaticamente** a cada `push` na branch `main`. Jobs:
 3. **docker-build-scan** — build da imagem + Trivy (scan da imagem).
 4. **deploy** — runner **self-hosted** no WSL sobe/atualiza o container local.
 
-## Análise de segurança (achado demonstrado)
+## Análise de segurança
 
-As dependências foram fixadas propositalmente em versões vulneráveis
+As dependências foram inicialmente fixadas em versões vulneráveis
 (`requests==2.28.1`, `urllib3==1.26.12`, `certifi==2022.9.24`) para
-demonstrar a detecção. Veja `docs/analise-seguranca.md` para o achado
-detalhado (vulnerabilidade, componente, severidade e correção).
+validar a detecção pela esteira. Principais achados:
 
-**Correção / mitigação:** atualizar as dependências para as versões mais
-recentes (ver `docs/analise-seguranca.md`).
+| Achado | Componente | Severidade | Ferramenta |
+|--------|-----------|------------|------------|
+| CVE-2023-43804 (vazamento de Cookie em redirect) | urllib3 1.26.12 | HIGH | Trivy, pip-audit |
+| CVE-2023-37920 (root CA e-Tugra) | certifi 2022.9.24 | HIGH | Trivy |
+| B104 (bind em 0.0.0.0) | `app/main.py` | MEDIUM | Bandit |
+
+**Correção:** dependências atualizadas para `requests==2.32.4`,
+`urllib3==2.2.2` e `certifi==2024.8.30`. O B104 é risco aceito, pois o bind
+em `0.0.0.0` é necessário para expor a porta dentro do container.

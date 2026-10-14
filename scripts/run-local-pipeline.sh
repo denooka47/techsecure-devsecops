@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Esteira CI/CD completa executada LOCALMENTE no WSL (gera evidencias).
+# Esteira CI/CD completa executada LOCALMENTE no WSL (gera relatorios em reports/).
 # Todas as etapas Python/seguranca rodam em CONTAINERS (sem depender de
 # pip/venv no host). Fluxo:
 #   Build -> Teste -> Security Scan -> Imagem Docker -> Deploy -> Container
@@ -11,7 +11,7 @@ PROJ="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$PROJ"
 IMAGE="techsecure-app"
 CONTAINER="techsecure-app"
-EVID="$PROJ/evidencias"
+EVID="$PROJ/reports"
 mkdir -p "$EVID"
 PYIMG="python:3.12-slim"
 TRIVY="aquasec/trivy:0.55.0"
@@ -56,4 +56,4 @@ echo "GET /api/soma?a=2&b=3:"
 curl -fsS "http://localhost:8080/api/soma?a=2&b=3" | tee "$EVID/06-app-soma.txt"; echo
 
 line "ESTEIRA CONCLUIDA"
-echo "Evidencias em: $EVID"
+echo "Relatorios em: $EVID"

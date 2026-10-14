@@ -9,8 +9,9 @@ venv/
 # Ambiente
 .env
 
-# Relatorios gerados (mantemos evidencias versionadas manualmente se quiser)
+# Relatorios gerados pela esteira local
 *.tmp
+reports/
 
 # Runner self-hosted
 actions-runner/
